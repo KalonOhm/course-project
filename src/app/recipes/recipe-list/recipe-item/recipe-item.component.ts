@@ -1,5 +1,4 @@
-import { emitDistinctChangesOnlyDefaultValue } from "@angular/compiler";
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component,  Input, OnInit } from "@angular/core";
 import { Recipe } from "../../recipe.model";
 
 @Component({
@@ -8,12 +7,12 @@ import { Recipe } from "../../recipe.model";
   styleUrls: ['./recipe-item.component.css']
 })
 
-export class RecipeItemComponent {
+export class RecipeItemComponent implements OnInit{
   @Input() recipe: Recipe;
-  @Output() recipeSelected = new EventEmitter<void>();
+  @Input() index: number;
 
-  onSelected() {
-    this.recipeSelected.emit();
+  ngOnInit(): void {
+
   }
 
 }
